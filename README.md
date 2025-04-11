@@ -20,11 +20,11 @@ pip install intake intake-xarray zarr jinja2
 
 *Or*, you can installing the mlcast-datasets package directly from this
 repository, which will install all the necessary dependencies:
-   
+
    ```bash
    pip install git+https://github.com/mlcast-community/mlcast-datasets
    ```
-   
+
 The catalogue (and underlying data) can then be accessed directly from python:
 
 ```python
@@ -45,7 +45,7 @@ You can list the available sources with:
 Then load up a [dask](https://github.com/dask/dask)-backed `xarray.Dataset` so
 that you have access to all the available variables and attributes in the
 dataset:
-   
+
 
 ```python
 >> ds = cat.precipitation.radklim_hourly.to_dask()
@@ -64,7 +64,7 @@ Data variables:
     crs      (time) float64 2MB dask.array<chunksize=(1,), meta=np.ndarray>
     ...
 ```
-   
+
 Start using the dataset 🙂
 
 
