@@ -1,0 +1,30 @@
+name: data-availability-check
+
+on:
+  schedule:
+  # run every Sunday at 3:17 UTC
+    - cron: '17 3 * * 0'
+  # allow manual triggering of the workflow
+  workflow_dispatch:
+  # run on pull-requests to the main branch
+  pull_request:
+    branches:
+      - main
+  # run on pushes to the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  data-availability-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # required to analyze which files are modified in this branch
+
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v5
+    - name: Test with pytest
+      run: |
+        uv run --all-groups python -m pytest --ignore=src/ -n 20 --timeout=300 -s

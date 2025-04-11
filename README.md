@@ -1,5 +1,7 @@
 # MLCast Community intake catalog
 
+[![data-availability-check](https://github.com/mlcast-community/mlcast-datasets/actions/workflows/data_availability_check.yml/badge.svg)](https://github.com/mlcast-community/mlcast-datasets/actions/workflows/data_availability_check.yml) [![linting](https://github.com/mlcast-community/mlcast-datasets/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/mlcast-community/mlcast-datasets/actions/workflows/pre-commit.yml) [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://mlcast-community.github.io/mlcast-datasets/)
+
 Hi! 👋
 
 You are looking at the source data intake catalog for the MLCast community. This is a collection of datasets we have currated with the aim of making them available to build machine learning training datasets from.

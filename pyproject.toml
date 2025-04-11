@@ -19,9 +19,16 @@ dev = [
     "loguru>=0.7.3",
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
+    "pytest-timeout>=2.3.1",
+    "pytest-xdist>=3.6.1",
     "sh>=2.2.2",
 ]
 notebooks = [
     "cartopy>=0.24.1",
+    "dask>=2025.3.0",
     "matplotlib>=3.10.1",
+]
+docs = [
+    "jupyter-book>=1.0.4.post1",
+    "sphinxcontrib-mermaid>=1.0.0",
 ]
