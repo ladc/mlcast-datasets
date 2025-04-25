@@ -31,7 +31,14 @@ The catalogue (and underlying data) can then be accessed directly from python:
 
 ```python
 >> from intake import open_catalog
->> cat = intake.open_catalog("https://raw.githubusercontent.com/mlcast-community/mlcast-datasets/main/catalog.yml")
+>> cat = intake.open_catalog("https://raw.githubusercontent.com/mlcast-community/mlcast-datasets/main/src/mlcast_datasets/catalog/catalog.yml")
+```
+
+or if you installed the `mlcast_datasets` package:
+
+```python
+>> import mlcast_datasets
+>> cat = mlcast_datasets.open_catalog()
 ```
 
 You can list the available sources with:
@@ -41,7 +48,7 @@ You can list the available sources with:
 ['precipitation']
 
 >> list(cat.precipitation)
-['radklim']
+['radklim_hourly', 'radklim_5_minutes']
 ```
 
 Then load up a [dask](https://github.com/dask/dask)-backed `xarray.Dataset` so

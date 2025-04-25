@@ -1,7 +1,10 @@
 [project]
-name = "mlcast-datasets"
+name = "mlcast_datasets"
 version = "0.1.0"
-description = "Add your description here"
+description = "Intake catalog for datasets relevant for machine learning based nowcasting"
+authors = [
+    {name = "Leif Denby", email = "lcd@dmi.dk"},
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -32,3 +35,13 @@ docs = [
     "jupyter-book>=1.0.4.post1",
     "sphinxcontrib-mermaid>=1.0.0",
 ]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+catalog = ["*.yaml", "precipitation/*.yaml"]

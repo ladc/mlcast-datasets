@@ -27,4 +27,8 @@ jobs:
       uses: astral-sh/setup-uv@v5
     - name: Test with pytest
       run: |
+        # install package with dependencies and editable version of our package
+        # so that it is available in the venv
+        uv venv
+        uv pip install -e .
         uv run --all-groups python -m pytest --ignore=src/ -n 20 --timeout=300 -s

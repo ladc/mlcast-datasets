@@ -38,6 +38,10 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
+        # install package with dependencies and editable version of our package
+        # so that it is available in the venv
+        uv venv
+        uv pip install -e .
         LOGURU_LEVEL=WARNING uv run --all-groups jupyter-book build docs/
 
     # Upload the book's HTML as an artifact
