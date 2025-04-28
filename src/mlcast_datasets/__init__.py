@@ -1,6 +1,12 @@
+import importlib.metadata
 import importlib.resources as pkg_resources
 
 import intake
+
+try:
+    __version__ = importlib.metadata.version(__name__)
+except importlib.metadata.PackageNotFoundError:
+    __version__ = "unknown"
 
 
 def open_catalog():

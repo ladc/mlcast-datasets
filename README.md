@@ -14,7 +14,11 @@ The following diagram shows the intended data flow and how the intake catalog (t
 
 ## How to use this catalog
 
-To use the catalog, you need to have the following packages installed:
+To use the catalog, you can either a) install the necessary python packages yourself and read the catalog directly from github or b) install the most recent tagged release of the `mlcast_datasets` python package from pypi.org and read the catalog included in that release. Reading the catalog from github is useful if you want to use the most recent version of the catalog, while installing the `mlcast_datasets` package is useful if you want to use a stable version of the catalog.
+
+### a) Reading the catalog directly from github
+
+To read and open datasets in the catalog you will need to have the following packages installed:
 
 ```bash
 pip install intake intake-xarray zarr jinja2
@@ -30,18 +34,28 @@ repository, which will install all the necessary dependencies:
 The catalogue (and underlying data) can then be accessed directly from python:
 
 ```python
->> from intake import open_catalog
->> cat = intake.open_catalog("https://raw.githubusercontent.com/mlcast-community/mlcast-datasets/main/src/mlcast_datasets/catalog/catalog.yml")
+import intake
+cat = intake.open_catalog("https://raw.githubusercontent.com/mlcast-community/mlcast-datasets/main/src/mlcast_datasets/catalog/catalog.yml")
 ```
 
-or if you installed the `mlcast_datasets` package:
+### b) Installing the mlcast_datasets package
+
+To install the most recent tagged release of the `mlcast_datasets` package, you can use pip:
+
+```bash
+pip install mlcast-datasets
+```
+
+and then read the catalog from the package:
 
 ```python
->> import mlcast_datasets
->> cat = mlcast_datasets.open_catalog()
+import mlcast_datasets
+cat = mlcast_datasets.open_catalog()
 ```
 
-You can list the available sources with:
+### Using data within the catalog
+
+Once you have opened the catalog, you can list the available sources with:
 
 ```python
 >> list(cat)
@@ -57,21 +71,28 @@ dataset:
 
 
 ```python
->> ds = cat.precipitation.radklim_hourly.to_dask()
+>> ds = cat.precipitation.radklim_5_minutes.to_dask()
 >> ds
-
-   <xarray.Dataset> Size: 798GB
-Dimensions:  (time: 201600, y: 1100, x: 900)
+<xarray.Dataset> Size: 10TB
+Dimensions:  (time: 2419200, y: 1100, x: 900)
 Coordinates:
     lat      (y, x) float64 8MB dask.array<chunksize=(1100, 900), meta=np.ndarray>
     lon      (y, x) float64 8MB dask.array<chunksize=(1100, 900), meta=np.ndarray>
-  * time     (time) datetime64[ns] 2MB 2001-01-01T00:50:00 ... 2023-12-31T23:...
-  * x        (x) float64 7kB -4.43e+05 -4.42e+05 -4.41e+05 ... 4.55e+05 4.56e+05
-  * y        (y) float64 9kB -4.758e+06 -4.757e+06 ... -3.66e+06 -3.659e+06
+  * time     (time) datetime64[ns] 19MB 2001-01-01 ... 2023-12-31T23:55:00
+  * x        (x) float64 7kB -443.0 -442.0 -441.0 -440.0 ... 454.0 455.0 456.0
+  * y        (y) float64 9kB -4.758e+03 -4.757e+03 ... -3.66e+03 -3.659e+03
 Data variables:
-    RR       (time, y, x) float32 798GB dask.array<chunksize=(1, 1100, 900), meta=np.ndarray>
-    crs      (time) float64 2MB dask.array<chunksize=(1,), meta=np.ndarray>
-    ...
+    RR       (time, y, x) float32 10TB dask.array<chunksize=(1, 1100, 900), meta=np.ndarray>
+    crs      float64 8B ...
+Attributes:
+    Author:                Harald Rybka, Katharina Lengfeld
+    Conventions:           CF-1.6
+    history:               Created at 2021-07-09 09:10:06.385653
+    institution:           Deutscher Wetterdienst (DWD)
+    reference:             10.5676/DWD/RADKLIM_YW_V2017.002
+    title:                 RADKLIM - radar-based precipitation climatology
+    zarr_creation:         created with mlcast_dataset_radklim (https://githu...
+    zarr_dataset_version:  0.1.0
 ```
 
 Start using the dataset 🙂

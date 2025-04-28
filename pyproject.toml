@@ -1,6 +1,6 @@
 [project]
-name = "mlcast_datasets"
-version = "0.1.0"
+name = "mlcast-datasets"
+dynamic = ["version"]
 description = "Intake catalog for datasets relevant for machine learning based nowcasting"
 authors = [
     {name = "Leif Denby", email = "lcd@dmi.dk"},
@@ -36,6 +36,10 @@ docs = [
     "sphinxcontrib-mermaid>=1.0.0",
 ]
 
+[build-system]
+requires = ["setuptools>=61", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 include-package-data = true
@@ -44,4 +48,7 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-catalog = ["*.yaml", "precipitation/*.yaml"]
+mlcast_datasets = ["catalog/*.yaml", "catalog/**/*.yaml"]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
