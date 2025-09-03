@@ -15,10 +15,7 @@ dependencies = [
     "s3fs>=2025.0.0",
 ]
 license = "Apache-2.0 OR BSD-3-Clause"
-license-files = [
-    "LICENSE-APACHE",
-    "LICENSE-BSD",
-]
+license-files = []
 
 [dependency-groups]
 dev = [
@@ -48,10 +45,6 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 package-dir = {"" = "src"}
 include-package-data = true
-license-files = [
-    "LICENSE-APACHE",
-    "LICENSE-BSD",
-]
 
 [tool.setuptools.packages.find]
 where = ["src"]
