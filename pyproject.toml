@@ -14,6 +14,11 @@ dependencies = [
     "jinja2>=3.1.6",
     "s3fs>=2025.0.0",
 ]
+license = "Apache-2.0 OR BSD-3-Clause"
+license-files = [
+    "LICENSE-APACHE",
+    "LICENSE-BSD",
+]
 
 [dependency-groups]
 dev = [
