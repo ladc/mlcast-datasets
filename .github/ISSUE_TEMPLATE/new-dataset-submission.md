@@ -34,7 +34,7 @@ assignees: ''
   - **📍 East Bound Longitude:** `<Value>`
   - **📍 South Bound Latitude:** `<Value>`
   - **📍 West Bound Longitude:** `<Value>`
-- **📊 Variables (Units):** 
+- **📊 Variables (Units):**
   - `<Variable Name (units), for precipitation only "Rain rate (mm/h)", "Rainfall (mm)" or "Reflectivity (dBZ)" are accepted>`
 - **📬 Maintainer:** `<Maintainer Name/entity>`
 - **🕒 Temporal Coverage:**
