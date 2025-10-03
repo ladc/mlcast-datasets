@@ -19,7 +19,6 @@ assignees: ''
 ## 🗂️ Metadata
 
 - **📛 Dataset Name:** `<dataset-name>`
-- **⚙️ Status:** `<Active/Inactive>`
 - **⏰ Last Update:** `<YYYY-MM-DD>`
 - **📅 Update Frequency:** `<Frequency, e.g., Monthly, Periodic>`
 - **📏 Spatial Resolution:** `<e.g., 1 km x 1 km>`
